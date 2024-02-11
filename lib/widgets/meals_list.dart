@@ -10,6 +10,7 @@ class MealsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
         itemCount: meals.length,
+      
         itemBuilder: (ctx, index) => MealItem(meal: meals[index]));
   }
 }
