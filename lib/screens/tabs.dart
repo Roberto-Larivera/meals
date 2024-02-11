@@ -63,7 +63,10 @@ class _TabsScreenState extends State<TabsScreen> {
     Navigator.of(context).pop();
     if (identifier == 'filters') {
       final result = await Navigator.of(context).push<Map<Filter, bool>>(
-        MaterialPageRoute(builder: (ctx) => const FiltersScreen()),
+        MaterialPageRoute(
+            builder: (ctx) => FiltersScreen(
+                  currentFilters: _selectedFilters,
+                )),
       );
 
       setState(() {
@@ -75,16 +78,16 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     final availableMeals = dummyMeals.where((meal) {
-      if(_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
+      if (_selectedFilters[Filter.glutenFree]! && !meal.isGlutenFree) {
         return false;
       }
-      if(_selectedFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
+      if (_selectedFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
         return false;
       }
-      if(_selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
+      if (_selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
         return false;
       }
-      if(_selectedFilters[Filter.vegan]! && !meal.isVegan) {
+      if (_selectedFilters[Filter.vegan]! && !meal.isVegan) {
         return false;
       }
       return true;
