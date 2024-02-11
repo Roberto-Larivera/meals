@@ -52,7 +52,6 @@ class MealsScreen extends StatelessWidget {
                 meal: meals[index],
                 onSelectMeal: () => _selectMeal(context, meals[index]),
               ));
-      ;
     }
 
     if (title == null) {
